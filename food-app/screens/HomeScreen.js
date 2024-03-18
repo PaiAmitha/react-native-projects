@@ -1,17 +1,7 @@
 import React, { useState } from 'react';
-import {
-  Dimensions,
-  Image,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-} from 'react-native';
+import { Dimensions, Image, SafeAreaView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { ScrollView } from 'react-native-gesture-handler';
 import COLORS from '../consts/colors';
 import categories from '../consts/categories';
 import foods from '../consts/foods';
@@ -23,18 +13,11 @@ const HomeScreen = ({ navigation }) => {
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   const [searchText, setSearchText] = useState('');
 
-  // Filter food items based on selected category and search text
-  const filteredFoods = foods.filter(food => {
-    const categoryMatch =
-      selectedCategoryIndex === 0 ||
-      food.category.toLowerCase() === categories[selectedCategoryIndex - 1].name.toLowerCase();
-    const searchTextMatch =
-      searchText.trim() === '' ||
-      food.name.toLowerCase().includes(searchText.toLowerCase());
-    return categoryMatch && searchTextMatch;
-  });
-
   const ListCategories = () => {
+    const onSelectCategory = (index) => {
+      setSelectedCategoryIndex(index);
+    };
+
     return (
       <ScrollView
         horizontal
@@ -44,13 +27,10 @@ const HomeScreen = ({ navigation }) => {
           <TouchableOpacity
             key={index}
             activeOpacity={0.8}
-            onPress={() => setSelectedCategoryIndex(index + 1)}>
+            onPress={() => onSelectCategory(index)}>
             <View
               style={{
-                backgroundColor:
-                  selectedCategoryIndex === index + 1
-                    ? COLORS.primary
-                    : COLORS.secondary,
+                backgroundColor: selectedCategoryIndex === index ? COLORS.primary : COLORS.secondary,
                 ...style.categoryBtn,
               }}>
               <View style={style.categoryBtnImgCon}>
@@ -64,10 +44,7 @@ const HomeScreen = ({ navigation }) => {
                   fontSize: 15,
                   fontWeight: 'bold',
                   marginLeft: 10,
-                  color:
-                    selectedCategoryIndex === index + 1
-                      ? COLORS.white
-                      : COLORS.primary,
+                  color: selectedCategoryIndex === index ? COLORS.white : COLORS.primary,
                 }}>
                 {category.name}
               </Text>
@@ -89,9 +66,7 @@ const HomeScreen = ({ navigation }) => {
           </View>
           <View style={{ marginHorizontal: 20 }}>
             <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{food.name}</Text>
-            <Text style={{ fontSize: 14, color: COLORS.grey, marginTop: 2 }}>
-              {food.ingredients}
-            </Text>
+            <Text style={{ fontSize: 14, color: COLORS.grey, marginTop: 2 }}>{food.ingredients}</Text>
           </View>
           <View
             style={{
@@ -116,9 +91,7 @@ const HomeScreen = ({ navigation }) => {
         <View>
           <View style={{ flexDirection: 'row' }}>
             <Text style={{ fontSize: 24 }}>Hello,</Text>
-            <Text style={{ fontSize: 24, fontWeight: 'bold', marginLeft: 10 }}>
-              Amy
-            </Text>
+            <Text style={{ fontSize: 24, fontWeight: 'bold', marginLeft: 10 }}>Amy</Text>
           </View>
           <Text style={{ marginTop: 5, fontSize: 20, color: COLORS.grey }}>
             What do you want today ?
@@ -135,13 +108,13 @@ const HomeScreen = ({ navigation }) => {
           <TextInput
             style={{ flex: 1, fontSize: 18 }}
             placeholder="Search for food"
+            onChangeText={(text) => setSearchText(text)}
             value={searchText}
-            onChangeText={setSearchText}
           />
         </View>
-        <View style={style.sortBtn}>
+        {/* <View style={style.sortBtn}>
           <Icon name="tune" size={28} color={COLORS.white} />
-        </View>
+        </View> */}
       </View>
       <View>
         <ListCategories />
@@ -149,13 +122,17 @@ const HomeScreen = ({ navigation }) => {
       <FlatList
         showsVerticalScrollIndicator={false}
         numColumns={2}
-        data={filteredFoods}
+        data={foods.filter(
+          (food) =>
+            food.category === categories[selectedCategoryIndex].name &&
+            (food.name.toLowerCase().includes(searchText.toLowerCase()) ||
+              food.category.toLowerCase().includes(searchText.toLowerCase()))
+        )}
         renderItem={({ item }) => <Card food={item} />}
       />
     </SafeAreaView>
   );
 };
-
 
 const style = StyleSheet.create({
   header: {

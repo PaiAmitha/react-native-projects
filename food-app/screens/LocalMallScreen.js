@@ -2,20 +2,25 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList, Image, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import COLORS from '../consts/colors';
-import stores from '../consts/stores'; // Assuming you have a file with store data
+import stores from '../consts/stores'; 
 
-const LocalMallScreen = ({ navigation }) => {
-
-  const navigateToStoreDetails = (store) => {
-    navigation.navigate('StoreDetailsScreen', { store });
-  };
+const LocalMallScreen = () => {
 
   const renderStoreItem = ({ item }) => (
     <TouchableOpacity
       style={styles.storeItemContainer}
-      onPress={() => navigateToStoreDetails(item)}>
+      onPress={() => {}}>
       <Image source={item.image} style={styles.storeItemImage} />
-      <Text style={styles.storeItemName}>{item.name}</Text>
+      <View style={styles.storeDetails}>
+        <Text style={styles.storeName}>{item.name}</Text>
+        <Text style={styles.storeLocation}>{item.location}</Text>
+        <Text style={styles.storeDescription}>{item.description}</Text>
+        <View style={styles.storeAdditionalDetails}>
+          <Text style={styles.storeCuisine}>Cuisine: {item.cuisine.join(', ')}</Text>
+          <Text style={styles.storeContact}>Contact: {item.contact}</Text>
+        </View>
+      </View>
+      <Icon name="arrow-forward-ios" size={24} color={COLORS.grey} />
     </TouchableOpacity>
   );
 
@@ -43,6 +48,7 @@ const styles = StyleSheet.create({
   storeItemContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
     marginBottom: 20,
     borderRadius: 10,
     elevation: 3,
@@ -54,11 +60,35 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 10,
   },
-  storeItemName: {
+  storeDetails: {
+    flex: 1,
     marginLeft: 10,
+  },
+  storeName: {
     fontSize: 18,
     fontWeight: 'bold',
     color: COLORS.primary,
+  },
+  storeLocation: {
+    fontSize: 16,
+    color: COLORS.grey,
+  },
+  storeDescription: {
+    fontSize: 14,
+    color: 'black',
+    marginTop: 5,
+  },
+  storeAdditionalDetails: {
+    marginTop: 5,
+  },
+  storeCuisine: {
+    fontSize: 14,
+    color: 'red', // Changed to darker color
+  },
+  storeContact: {
+    fontSize: 14,
+    color: 'blue', // Changed to darker color
+    marginTop: 5,
   },
 });
 
