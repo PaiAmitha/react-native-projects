@@ -16,7 +16,7 @@ export default function CameraScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //paddingTop: StatusBar.currentHeight, 
+    paddingTop: StatusBar.currentHeight, 
   },
   text: {
     fontSize: 20,

@@ -6,7 +6,7 @@ import HomeScreen from '../screens/HomeScreen';
 import CameraScreen from '../screens/CameraScreen';
 import LocationScreen from '../screens/LocationScreen';
 import ListDataScreen from '../screens/ListDataScreen';
-import StackNavigator from './StackNavigator';
+
 
 const Tab = createBottomTabNavigator();
 

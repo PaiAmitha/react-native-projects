@@ -1,6 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, StatusBar, FlatList, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Image } from 'react-native';
 import Header from '../components/Header';
+import { StatusBar } from 'expo-status-bar';
 
 const data = require('../data/data.json');
 

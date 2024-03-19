@@ -1,31 +1,24 @@
-import { View, Text, StyleSheet, StatusBar, Button } from 'react-native';
 import React from 'react';
+import { View, StyleSheet, Text } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
 import Header from '../components/Header';
 import APIcomponent from '../components/APIcomponent';
-import { useNavigation } from '@react-navigation/native';
-import StackNavigator from '../navigation/StackNavigator';
 
-export default function ListDataScreen() {
-    const navigation = useNavigation(); 
-
-  const handleButtonPress = () => {
-    navigation.navigate('DisplayScreen'); 
-  };
+const YourScreen = () => {
   return (
     <View style={styles.container}>
       <StatusBar />
-      <Header title='ListData'/>
-      <Button title="Show Data" onPress={handleButtonPress} />
-      <Text style={styles.text}>Fetching data from API</Text>
-      <APIcomponent/>
+      <Header title="List Data" />
+      <Text style={styles.text}>Fetching API Data</Text>
+      <APIcomponent />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //paddingTop: StatusBar.currentHeight, // Add paddingTop to create space for StatusBar
+    paddingTop: StatusBar.currentHeight,
   },
   text: {
     fontSize: 20,
@@ -33,3 +26,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 });
+
+export default YourScreen;

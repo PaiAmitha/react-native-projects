@@ -15,7 +15,7 @@ export default function LocationScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    //paddingTop: StatusBar.currentHeight, // Add paddingTop to create space for StatusBar
+    paddingTop: StatusBar.currentHeight, // Add paddingTop to create space for StatusBar
   },
   text: {
     fontSize: 20,
