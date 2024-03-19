@@ -3,56 +3,48 @@
       "name": "Sheldon Cooper",
       "age": 35,
       "profession": "Theoretical Physicist",
-      "city": "Pasadena",
-      "imageUri": "https://th.bing.com/th/id/OIP.kgovKO7Y-q-1Qe_bvmYhYgHaFj?w=249&h=187&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+      "city": "Pasadena"
     },
     {
       "name": "Leonard Hofstadter",
       "age": 36,
       "profession": "Experimental Physicist",
-      "city": "Pasadena",
-      "imageUri": "https://th.bing.com/th/id/OIP.wtVVWh4EqGYLnUXH66PWrwAAAA?w=186&h=186&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+      "city": "Pasadena"
     },
     {
       "name": "Penny",
       "age": 32,
       "profession": "Actress",
-      "city": "Los Angeles",
-      "imageUri": "https://th.bing.com/th/id/OIP.3zncSXTA1IWBiL0jPq2q3AHaFj?w=186&h=140&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+      "city": "Los Angeles"
     },
     {
       "name": "Howard Wolowitz",
       "age": 38,
       "profession": "Aerospace Engineer",
-      "city": "Pasadena",
-      "imageUri": "https://th.bing.com/th/id/OIP.1NndKw3FHD55U2DJxL6P3QHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+      "city": "Pasadena"
     },
     {
       "name": "Rajesh Koothrappali",
       "age": 37,
       "profession": "Astrophysicist",
-      "city": "Pasadena",
-      "imageUri": "https://th.bing.com/th/id/OIP.bghjJGVm0BxIB101wq2dLQHaEK?w=269&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+      "city": "Pasadena"
     },
     {
       "name": "Bernadette Rostenkowski-Wolowitz",
       "age": 34,
       "profession": "Microbiologist",
-      "city": "Pasadena",
-      "imageUri": "https://th.bing.com/th/id/OIP.Hu52H0TtAzwBVgAbYuphjAAAAA?w=120&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+      "city": "Pasadena"
     },
     {
       "name": "Amy Farrah Fowler",
       "age": 33,
       "profession": "Neurobiologist",
-      "city": "Pasadena",
-      "imageUri": "https://th.bing.com/th/id/OIP.Lk6CG26o8w8yUSHubpuiawAAAA?w=186&h=198&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+      "city": "Pasadena"
     },
     {
       "name": "Stuart Bloom",
       "age": 40,
       "profession": "Comic Book Store Owner",
-      "city": "Pasadena",
-      "imageUri": "https://th.bing.com/th/id/OIP.t2tTr2pkaKR8Yz2HckQSHQHaK_?w=115&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7"
+      "city": "Pasadena"
     }
 ]
