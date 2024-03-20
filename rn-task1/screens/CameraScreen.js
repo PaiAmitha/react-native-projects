@@ -32,12 +32,10 @@ export default function CameraScreen() {
   };
 
   if (permission === null) {
-    // Camera permissions are still loading
     return <View />;
   }
 
   if (!permission) {
-    // Camera permissions are not granted yet
     return (
       <View style={styles.container}>
         <StatusBar />

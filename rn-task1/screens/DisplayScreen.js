@@ -5,7 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 
 const data = require('../data/data.json');
 
-const ListDataScreen = () => {
+const DisplayScreen = () => {
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListDataScreen;
+export default DisplayScreen;
